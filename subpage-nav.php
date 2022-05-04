@@ -3,14 +3,14 @@
 /*
 Plugin Name: Subpage Nav
 Plugin URI: https://timbr.dev
-Description: REPLACEME.
+Description: Plugin to develop, test and copy the subpage nav code from.
 Version: 0.1.0
 Author: Tim Brugman
 Author URI: https://timbr.dev
 Text Domain: spn
 Domain Path: /languages
 Network: false
-License: GPLv2|GPLv3|MIT License
+License: GPLv2
 */
 
 if ( !defined( 'ABSPATH' ) )
@@ -112,6 +112,12 @@ if ( !class_exists( 'SPN' ) )
                 case 'three':
                     $this->page_three();
                     break;
+                case 'four':
+                    $this->page_four();
+                    break;
+                case 'five':
+                    $this->page_five();
+                    break;
                 default:
                     $this->page_one();
                     break;
@@ -133,6 +139,16 @@ if ( !class_exists( 'SPN' ) )
         private function page_three()
         {
             echo '<h1>'.__( 'Page Three', $this->textdomain() ).'</h1>';
+        }
+
+        private function page_four()
+        {
+            echo '<h1>'.__( 'Page Four', $this->textdomain() ).'</h1>';
+        }
+
+        private function page_five()
+        {
+            echo '<h1>'.__( 'Page Five', $this->textdomain() ).'</h1>';
         }
 
         /**
