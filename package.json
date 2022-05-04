@@ -1,0 +1,24 @@
+{
+  "name": "subpage-nav",
+  "version": "0.1.0",
+  "author": "Tim Brugman (https://timbr.dev/)",
+  "private": "true",
+  "scripts": {
+    "postinstall": "npx gulp --env=prod"
+  },
+  "devDependencies": {
+    "fancy-log": "^2.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-filter": "^7.0.0",
+    "gulp-if": "^3.0.0",
+    "gulp-less": "^5.0.0",
+    "gulp-livereload": "^4.0.2",
+    "gulp-notify": "^4.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "minimist": "^1.2.6"
+  }
+}
