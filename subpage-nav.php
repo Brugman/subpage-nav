@@ -32,11 +32,28 @@ if ( !class_exists( 'SPN' ) )
             return 'spn';
         }
 
-        private function admin_url( $args = [] )
+        private function tools_url( $args = [] )
         {
-            $args['page'] = 'spn';
+            $default_args = [
+                'page' => 'spn-tools',
+            ];
 
-            return admin_url( 'options-general.php?'.http_build_query( $args ) );
+            return add_query_arg(
+                array_merge( $default_args, $args ),
+                admin_url( 'tools.php' ),
+            );
+        }
+
+        private function settings_url( $args = [] )
+        {
+            $default_args = [
+                'page' => 'spn-settings',
+            ];
+
+            return add_query_arg(
+                array_merge( $default_args, $args ),
+                admin_url( 'options-general.php' ),
+            );
         }
 
         /**
@@ -58,23 +75,23 @@ if ( !class_exists( 'SPN' ) )
             $subpages = [
                 [
                     'title' => __( 'Page One', $this->textdomain() ),
-                    'link'  => $this->admin_url(),
+                    'link'  => $this->settings_url(),
                 ],
                 [
                     'title' => __( 'Page Two', $this->textdomain() ),
-                    'link'  => $this->admin_url([ 'subpage' => 'two' ]),
+                    'link'  => $this->settings_url([ 'subpage' => 'two' ]),
                 ],
                 [
                     'title' => __( 'Page Three', $this->textdomain() ),
-                    'link'  => $this->admin_url([ 'subpage' => 'three' ]),
+                    'link'  => $this->settings_url([ 'subpage' => 'three' ]),
                 ],
                 [
                     'title' => __( 'Page Four', $this->textdomain() ),
-                    'link'  => $this->admin_url([ 'subpage' => 'four' ]),
+                    'link'  => $this->settings_url([ 'subpage' => 'four' ]),
                 ],
                 [
                     'title' => __( 'Page Five', $this->textdomain() ),
-                    'link'  => $this->admin_url([ 'subpage' => 'five' ]),
+                    'link'  => $this->settings_url([ 'subpage' => 'five' ]),
                 ],
             ];
 
@@ -187,7 +204,7 @@ if ( !class_exists( 'SPN' ) )
 
         public function hook_register_settings_link( $links )
         {
-            $links['settings'] = '<a href="'.$this->admin_url().'">Settings</a>';
+            $links['settings'] = '<a href="'.$this->settings_url().'">Settings</a>';
 
             return $links;
         }
